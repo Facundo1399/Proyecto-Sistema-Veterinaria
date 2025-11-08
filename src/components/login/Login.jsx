@@ -1,8 +1,19 @@
+import { useNavigate } from 'react-router-dom';
 import portadaLogin from './imagen/portadaLogin.jpg';
 
 const Login = () => {
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // Aquí puedes agregar validación de credenciales
+    // Por ahora, navega directamente a /turnos
+    navigate('/turnos');
+  };
+
   return (
-    <div className="min-h-screen max-w-[60%] flex mx-auto bg-[#a8e6cf]">
+    <div className="min-h-screen max-w-[60%] flex mx-auto bg-[#a8e6cf] rounded-2xl shadow-2xl">
       {/* Imagen a la izquierda (solo en pantallas grandes) */}
       <div className="hidden lg:flex lg:w-[50%] items-center justify-center p-12">
         <img
@@ -18,18 +29,13 @@ const Login = () => {
           <div className="bg-white rounded-2xl shadow-xl p-8 space-y-6">
             <h2 className="text-2xl font-bold text-center text-gray-800">Iniciar Sesión</h2>
 
-            <form
-              className="space-y-6 space-x-2"
-              onSubmit={(e) => {
-                e.preventDefault();
-                console.log('Formulario enviado');
-              }}
-            >
+            <form className="space-y-6 space-x-2" onSubmit={handleSubmit}>
               <div>
                 <input
                   type="text"
                   placeholder="Nombre de usuario"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none ring-offset-2 focus:ring-2 focus:ring-blue-500 transition"
+                  required
                 />
               </div>
 
@@ -38,6 +44,7 @@ const Login = () => {
                   type="email"
                   placeholder="Correo electrónico"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none ring-offset-2 focus:ring-2 focus:ring-blue-500 transition"
+                  required
                 />
               </div>
 
@@ -46,6 +53,7 @@ const Login = () => {
                   type="password"
                   placeholder="Contraseña"
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg outline-none ring-offset-2 focus:ring-2 focus:ring-blue-500 transition"
+                  required
                 />
               </div>
 
@@ -56,7 +64,6 @@ const Login = () => {
                 Entrar
               </button>
             </form>
-
           </div>
         </div>
       </div>

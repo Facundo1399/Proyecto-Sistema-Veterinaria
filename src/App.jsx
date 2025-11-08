@@ -1,18 +1,33 @@
 import './index.css';
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
-import Login  from "./components/login/Login" 
+import Login from "./components/login/Login";
 import Sidebar from './components/sidebar/Sidebar';
-import Turnos from './components/menu turnos/Turnos';
+import Turnos from './components/menu_turnos/Turnos';
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const showSidebar = location.pathname !== '/';
 
   return (
-    <>
-
-      <Login />
-      
-    </>
-  )
+    <div className="flex">
+      {showSidebar && <Sidebar />}
+      <div className="flex-1 p-6">
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/turnos" element={<Turnos />} />
+        </Routes>
+      </div>
+    </div>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+}
+
+export default App;

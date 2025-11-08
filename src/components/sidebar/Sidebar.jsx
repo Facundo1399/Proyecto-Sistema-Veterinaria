@@ -1,8 +1,20 @@
-
 import { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const navigate = useNavigate();
+
+    const handleLinkClick = () => {
+        // Cierra el menú en móviles al hacer clic en un link
+        setIsSidebarOpen(false);
+    };
+
+    const handleLogout = () => {
+        // Lógica de cierre de sesión (limpiar tokens, etc.)
+        navigate('/');
+    };
+
     return (
         <>
             {/* Botón de menú móvil */}
@@ -44,30 +56,62 @@ const Sidebar = () => {
                 </div>
 
                 <div className="w-full text-sm flex flex-col">
-                    <button className="flex items-center gap-2 px-5 py-3 bg-white/10 text-left hover:bg-white/20">
+                    <Link 
+                        to="/inicio" 
+                        onClick={handleLinkClick}
+                        className="flex items-center gap-2 px-5 py-3 bg-white/10 hover:bg-white/20"
+                    >
                         <i className="fas fa-home w-5"></i> <span>Inicio</span>
-                    </button>
-                    <button className="flex items-center gap-2 px-5 py-3 hover:bg-white/10 text-left">
+                    </Link>
+                    
+                    <Link 
+                        to="/turnos" 
+                        onClick={handleLinkClick}
+                        className="flex items-center gap-2 px-5 py-3 hover:bg-white/10"
+                    >
                         <i className="fas fa-calendar-alt w-5"></i> <span>Turnos</span>
-                    </button>
-                    <button className="flex items-center gap-2 px-5 py-3 hover:bg-white/10 text-left">
+                    </Link>
+                    
+                    <Link 
+                        to="/propietarios" 
+                        onClick={handleLinkClick}
+                        className="flex items-center gap-2 px-5 py-3 hover:bg-white/10"
+                    >
                         <i className="fas fa-users w-5"></i> <span>Propietarios</span>
-                    </button>
-                    <button className="flex items-center gap-2 px-5 py-3 hover:bg-white/10 text-left">
+                    </Link>
+                    
+                    <Link 
+                        to="/mascotas" 
+                        onClick={handleLinkClick}
+                        className="flex items-center gap-2 px-5 py-3 hover:bg-white/10"
+                    >
                         <i className="fas fa-paw w-5"></i> <span>Mascotas</span>
-                    </button>
-                    <button className="flex items-center gap-2 px-5 py-3 hover:bg-white/10 text-left">
+                    </Link>
+                    
+                    <Link 
+                        to="/veterinarios" 
+                        onClick={handleLinkClick}
+                        className="flex items-center gap-2 px-5 py-3 hover:bg-white/10"
+                    >
                         <i className="fas fa-user-md w-5"></i> <span>Veterinarios</span>
-                    </button>
-                    <button className="flex items-center gap-2 px-5 py-3 hover:bg-white/10 text-left">
+                    </Link>
+                    
+                    <Link 
+                        to="/historial" 
+                        onClick={handleLinkClick}
+                        className="flex items-center gap-2 px-5 py-3 hover:bg-white/10"
+                    >
                         <i className="fas fa-clipboard-list w-5"></i> <span>Historial Médico</span>
-                    </button>
+                    </Link>
                     
                     <div className="mt-4 mb-4 mx-4">
                         <div className="border-t border-gray-600/20"></div>
                     </div>
                     
-                    <button className="flex items-center gap-2 px-5 py-3 hover:bg-white/10 text-left text-red-400">
+                    <button 
+                        onClick={handleLogout}
+                        className="flex items-center gap-2 px-5 py-3 hover:bg-white/10 text-left text-red-400"
+                    >
                         <i className="fas fa-sign-out-alt w-5"></i> <span>Cerrar Sesión</span>
                     </button>
                 </div>

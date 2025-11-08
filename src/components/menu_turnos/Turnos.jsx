@@ -108,6 +108,8 @@ const Turnos = () => {
         // Aquí irá la lógica para actualizar el estado en la base de datos
     };
 
+    
+
     return (
         <div className="p-6">
             <div className="flex justify-between items-center mb-6">

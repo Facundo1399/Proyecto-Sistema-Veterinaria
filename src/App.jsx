@@ -1,23 +1,39 @@
 import './index.css';
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 
-import Login  from "./components/login/Login" 
+import Login from "./components/login/Login";
 import Sidebar from './components/sidebar/Sidebar';
-import Turnos from './components/menu turnos/Turnos';
 import Dashboard from './components/dashboard/Dashboard';
+import Turnos from './components/menu_turnos/Turnos';
+import Propietarios from './components/menuPropietarios/Propietarios';
+import Mascotas from './components/menuMascotas/Mascotas';
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+  const showSidebar = location.pathname !== '/';
 
   return (
-    <>
-      <Sidebar />
-      <Dashboard />
-      <Turnos />
-
-
-      <Login />
-      
-    </>
-  )
+    <div className="flex">
+      {showSidebar && <Sidebar />}
+      <div className="flex-1 p-6">
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/dasboard" element={<Dashboard />} />
+          <Route path="/turnos" element={<Turnos />} />
+          <Route path="/propietarios" element={<Propietarios />} />
+          <Route path="/mascotas" element={<Mascotas />} />
+        </Routes>
+      </div>
+    </div>
+  );
 }
 
-export default App
+function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  );
+}
+
+export default App;

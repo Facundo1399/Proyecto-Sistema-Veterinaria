@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import portada from "./imagenes/portada.jpg";
 
 const Mascotas = () => {
     const [mostrarFormulario, setMostrarFormulario] = useState(false);
@@ -172,12 +171,12 @@ const Mascotas = () => {
     });
 
     return (
-        <div className="p-6 min-h-screen bg-cover bg-center" style={{ backgroundImage: `url(${portada})` }}>
+        <div className="p-6 min-h-screen bg-cover bg-center bg-[#fdf6ec]">
             <div className="flex justify-between items-center mb-6">
                 <h1 className="text-3xl font-semibold text-gray-800">Gestión de Mascotas</h1>
                 <button
                     onClick={() => setMostrarFormulario(true)}
-                    className="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center gap-2"
+                    className="bg-[#00796b] hover:bg-[#a8e6cf] text-white font-semibold py-2 px-4 rounded-lg transition-colors flex items-center gap-2"
                 >
                     <i className="fas fa-plus"></i>
                     Nueva Mascota
@@ -475,7 +474,7 @@ const Mascotas = () => {
                                 </button>
                                 <button
                                     type="submit"
-                                    className="bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors"
+                                    className="bg-[#00796b] text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors"
                                 >
                                     Guardar Mascota
                                 </button>

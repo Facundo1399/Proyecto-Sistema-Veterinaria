@@ -9,7 +9,7 @@ const Login = () => {
     
     // Aquí puedes agregar validación de credenciales
     // Por ahora, navega directamente a /turnos
-    navigate('/turnos');
+    navigate('/inicio');
   };
 
   return (

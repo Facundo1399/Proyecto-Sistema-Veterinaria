@@ -18,7 +18,7 @@ function AppContent() {
       <div className="flex-1 p-6">
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/dasboard" element={<Dashboard />} />
+          <Route path="/inicio" element={<Dashboard />} />
           <Route path="/turnos" element={<Turnos />} />
           <Route path="/propietarios" element={<Propietarios />} />
           <Route path="/mascotas" element={<Mascotas />} />

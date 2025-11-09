@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import Login from "./components/login/Login";
 import Sidebar from './components/sidebar/Sidebar';
 import Turnos from './components/menu_turnos/Turnos';
+import Propietarios from './components/menuPropietarios/Propietarios';
+import Mascotas from './components/menuMascotas/Mascotas';
 
 function AppContent() {
   const location = useLocation();
@@ -16,6 +18,8 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/turnos" element={<Turnos />} />
+          <Route path="/propietarios" element={<Propietarios />} />
+          <Route path="/mascotas" element={<Mascotas />} />
         </Routes>
       </div>
     </div>

@@ -7,6 +7,7 @@ import Dashboard from './components/dashboard/Dashboard';
 import Turnos from './components/menu_turnos/Turnos';
 import Propietarios from './components/menuPropietarios/Propietarios';
 import Mascotas from './components/menuMascotas/Mascotas';
+import Veterinarios from './components/menu-veterinarios/Veterinarios';
 
 function AppContent() {
   const location = useLocation();
@@ -22,6 +23,7 @@ function AppContent() {
           <Route path="/turnos" element={<Turnos />} />
           <Route path="/propietarios" element={<Propietarios />} />
           <Route path="/mascotas" element={<Mascotas />} />
+          <Route path="/veterinarios" element={<Veterinarios />} />n
         </Routes>
       </div>
     </div>
